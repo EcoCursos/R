@@ -70,8 +70,8 @@ ggplot(torres,aes(mes,Rnet,colour=torre))+
   #Mudar parameto do tema do grafico
   #base_size Muda o tamaho da fonte
   theme_bw(base_size = 20)+
-  ylab("Rnet (w/m²)")#Muda o texto do do eixo Y
-    
+  ylab("Rnet (w/m²)")+#Muda o texto do do eixo Y
+  xlab("Mês")  #Muda o texto do do eixo X
 #Fim da questão A
 
 
@@ -86,5 +86,4 @@ ggplot(torres,aes(Rnet,Rnet_EF,colour=torre))+
   stat_smooth(method = lm , se=F, size=2)+
   geom_abline(slope = 1, intercept = 0)+#Linha 1 para 1
   theme_bw(base_size = 20)+
-  ylab('Rnet EddyFlux')+ #Escreve o nome do eixo Y
-  xlab('Rnet Radiometro') #Escreve o nome do eixo X 
+  labs(x='Rnet Radiômetro (W/m²)', y=  'Rnet Eddy Flux (W/m²)')#Muda o texto dos eixos
