@@ -57,14 +57,16 @@ ggplot(torres,aes(mes,Rnet,colour=torre))+
   stat_smooth()
 
 
-#Cria um grafico para as duas torres
+#Cria um grafico para as duas torres e personalisação
 ggplot(torres,aes(mes,Rnet,colour=torre))+
   #se=F Remover erro padrão
   #size Tamanho da linha
   stat_smooth(se=F,size=2)+
   #Mudar parameto do tema do grafico
   #base_size Muda o tamaho da fonte
-  theme_bw(base_size = 20)
+  theme_bw(base_size = 20)+
+  ylab("Rnet (w/m²)")#Muda o texto do do eixo Y
+    
 
 #Cria um grafico para cada torre
 ggplot(torres,aes(mes,Rnet))+
