@@ -56,8 +56,13 @@ library(ggplot2)#Carrega a biblioteca ggplot2
 ggplot(torres,aes(mes,Rnet,colour=torre))+
   stat_smooth()
 
+#Cria um grafico para cada torre
+ggplot(torres,aes(mes,Rnet))+
+  stat_smooth()+
+  facet_grid(torre~.)
 
 #Cria um grafico para as duas torres e personalisação
+#a) Gráfico da media mensal  de Rnet para cada torre
 ggplot(torres,aes(mes,Rnet,colour=torre))+
   #se=F Remover erro padrão
   #size Tamanho da linha
@@ -68,7 +73,3 @@ ggplot(torres,aes(mes,Rnet,colour=torre))+
   ylab("Rnet (w/m²)")#Muda o texto do do eixo Y
     
 
-#Cria um grafico para cada torre
-ggplot(torres,aes(mes,Rnet))+
-  stat_smooth()+
-  facet_grid(torre~.)
