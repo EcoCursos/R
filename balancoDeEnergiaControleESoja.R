@@ -72,4 +72,19 @@ ggplot(torres,aes(mes,Rnet,colour=torre))+
   theme_bw(base_size = 20)+
   ylab("Rnet (w/m²)")#Muda o texto do do eixo Y
     
+#Fim da questão A
 
+
+#b) Fechamento do balanço de energia (Rnet x ET+H)
+#Cria um Rnet baseado na Equação Rnet = EvapoTranspiração + CalorSensivel
+torres$Rnet_EF = torres$LE + torres$H 
+
+
+#Grafico de fechamento do balanço de energia
+ggplot(torres,aes(Rnet,Rnet_EF,colour=torre))+
+  geom_point()+
+  stat_smooth(method = lm , se=F, size=2)+
+  geom_abline(slope = 1, intercept = 0)+#Linha 1 para 1
+  theme_bw(base_size = 20)+
+  ylab('Rnet EddyFlux')+ #Escreve o nome do eixo Y
+  xlab('Rnet Radiometro') #Escreve o nome do eixo X 
